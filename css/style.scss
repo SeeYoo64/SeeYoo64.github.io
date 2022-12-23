@@ -6,6 +6,10 @@ body{
   color: #9C9C9C;
   background-color: #0D0D11;
 }
+
+body.lock{
+  overflow: hidden;
+}
 .wrapper {
   min-height: 100%;
   display:flex;
@@ -49,8 +53,6 @@ body img{
     margin-bottom: 50px;
   }
 }
-
-
 .button {
   display: inline-block;
   text-align: center;
@@ -125,7 +127,30 @@ body img{
   column-gap:32px;
   row-gap:15px;
 }
-.header-main__button{
+.button{
+  transition:all 0.3s ease 0s;
+}
+
+.button:hover{
+  transition:all 0.3s ease 0s;
+  border-style: solid;
+  border-color: #5cc97b;
+  background-color: #5cc97b;
+  -ms-transform: translate(0px, -5px);
+  transform: translate(0px, -5px);
+  color: #fff;
+}
+
+.button_dark:hover{
+  transition:all 0.3s ease 0s;
+  border-color: #212427 #212427 #212427 rgba(129, 129, 139, 0.2);
+  background-color: rgba(129, 129, 139, 0.3);
+  -ms-transform: translate(0px, -5px);
+  transform: translate(0px, -5px);
+  color: #fff;
+}
+.button_dark{
+  transition:all 0.3s ease 0s;
 }
 
 .header-main__label{
@@ -229,8 +254,10 @@ body img{
   font-size: 16px;
   color:#fff;
   line-height: 1.62; /*26/16   lh / fz        */
+  transition: all 0.3s ease 0s;
     &:hover{
-      text-decoration: underline;
+      transition: all 0.3s ease 0s;
+      color: #9c9c9c;
     }
 }
 .header__cart {
@@ -241,13 +268,16 @@ body img{
   display: flex;
   gap:5px;
 }
-.cart-header:hover .cart-header__text{
-  text-decoration: underline;
+.cart-header:hover{
+  transition: all 0.3s ease 0s;
+  color: #9c9c9c;
 }
 .cart-header__text {
   font-size: 18px;
   line-height:1.55; /*28/18*/
 }
+
+
 .cart-header__quantity {
   background: rgba(129, 129, 139, 0.3);
   border-radius: 50%;
@@ -311,12 +341,12 @@ body img{
     column-gap:15px;
   }
   .icon-menu{
-    background-color: #0D0D11;
     display: block;
     flex: 0 0 30px;
     height: 18px;
     position: relative;
     z-index: 5;
+    cursor: pointer;
   }
   .icon-menu span,
   .icon-menu::before,
@@ -337,20 +367,19 @@ body img{
   }
   .icon-menu span{
     top: calc(50% - 1px);
+    transform: scale(1), translate( 0px, -50%);
   }
-
-  .menu-open .icon-menu span{
-    width: 0;
+  .menu-open span{
+    transform: scale(0);
   }
-
-  .menu-open .icon-menu span:before{
-    top: calc(50% - 1px);
+  .menu-open::before{
     transform: rotate(-45deg);
+    top: calc(50% - 1px);
   }
 
-  .menu-open .icon-menu span:after{
-    bottom: calc(50% - 1px);
+  .menu-open::after{
     transform: rotate(45deg);
+    bottom: calc(50% - 1px);
   }
 
   .menu__body{
@@ -387,7 +416,6 @@ body img{
   .header__container{
     min-height: 70px;
   }
-
 }
 .menu-open .menu__body,
 .menu-open .menu__body::before{
